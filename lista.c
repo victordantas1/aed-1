@@ -41,11 +41,12 @@ void insere_na_posicao(Lista* lista, int posicao, int info) {
         ListaNo* novo = malloc(sizeof(ListaNo));
         ListaNo* p;
         novo->info = info;
-        for(p = lista->prim; percorrePosicao < posicao; p = p->proxNo) {
+        for(p = lista->prim; percorrePosicao < posicao - 1; p = p->proxNo) {
             percorrePosicao++;
         }
         novo->proxNo = p->proxNo;
         p->proxNo = novo;
+        lista->tamanho += 1;
     }
 }
     
@@ -65,10 +66,31 @@ int pertence(Lista* lista, int info) {
     return 0;
 }
 
+int busca_por_posicao(Lista* lista, int posicao) {
+    if(posicao == 0) return lista->prim->info;
+    else {
+        int percorrePosicao = 0;
+        ListaNo* p;
+        for(p = lista->prim; percorrePosicao < posicao; p = p->proxNo) percorrePosicao++;
+        return p->info;
+    }
+}
+
+int busca_por_info(Lista* lista, int info) {
+    int percorrePosicao = 0;
+    ListaNo* p;
+    for(p = lista->prim; p->info != info; p = p->proxNo) percorrePosicao++;
+    return percorrePosicao;
+}
+
 int tamanho(Lista* lista) {
     int tamanho = 0;
     ListaNo* p;
     for(p = lista->prim; p != NULL; p = p->proxNo) tamanho++;
     lista->tamanho = tamanho;
     return tamanho;
+}
+
+int esta_vazia(Lista* lista) {
+    return lista->tamanho == 0 ? 1 : 0; 
 }

@@ -13,6 +13,9 @@ int main() {
     insere_na_posicao(lista, 3, 10);
     insere_na_posicao(lista, 0, 20);
     imprime_lista(lista);
-    printf("%d\n", pertence(lista, 4));
+    pertence(lista, 90) ? printf("Sim, pertence a lista\n") : printf("FAZ O L\n");
     printf("%d\n", lista->tamanho);
+    printf("%d\n", busca_por_posicao(lista, 0));
+    printf("%d\n", busca_por_info(lista, 10));
+    printf("%d\n", esta_vazia(lista));
 }
