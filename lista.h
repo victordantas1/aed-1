@@ -16,7 +16,9 @@ Lista* cria_lista();
 
 void insere(Lista* lista, int info);
 
-void insereNoFim(Lista* lista, int info);
+void insere_no_fim(Lista* lista, int info);
+
+void insere_na_posicao(Lista* lista, int posicao, int info);
 
 void imprime_lista(Lista* lista);
 
