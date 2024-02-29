@@ -35,15 +35,18 @@ void insere_no_fim(Lista* lista, int info) {
 }
 
 void insere_na_posicao(Lista* lista, int posicao, int info) {
-    int percorrePosicao = 0;
-    ListaNo* novo = malloc(sizeof(ListaNo));
-    ListaNo* p;
-    novo->info = info;
-    for(p = lista->prim; percorrePosicao < posicao; p = p->proxNo) {
-        percorrePosicao++;
+    if(posicao == 0) insere(lista, info);
+    else {
+        int percorrePosicao = 0;
+        ListaNo* novo = malloc(sizeof(ListaNo));
+        ListaNo* p;
+        novo->info = info;
+        for(p = lista->prim; percorrePosicao < posicao; p = p->proxNo) {
+            percorrePosicao++;
+        }
+        novo->proxNo = p->proxNo;
+        p->proxNo = novo;
     }
-    novo->proxNo = p->proxNo;
-    p->proxNo = novo;
 }
     
 

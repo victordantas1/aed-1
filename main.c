@@ -11,6 +11,7 @@ int main() {
     insere_no_fim(lista, 5);
     insere_no_fim(lista, 6);
     insere_na_posicao(lista, 3, 10);
+    insere_na_posicao(lista, 0, 20);
     imprime_lista(lista);
     printf("%d\n", pertence(lista, 4));
     printf("%d\n", lista->tamanho);
