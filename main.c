@@ -14,8 +14,11 @@ int main() {
     insere_na_posicao(lista, 0, 20);
     imprime_lista(lista);
     pertence(lista, 90) ? printf("Sim, pertence a lista\n") : printf("FAZ O L\n");
-    printf("%d\n", lista->tamanho);
-    printf("%d\n", busca_por_posicao(lista, 0));
-    printf("%d\n", busca_por_info(lista, 10));
-    printf("%d\n", esta_vazia(lista));
+    printf("Tamanho: %d\n", lista->tamanho);
+    printf("Buscao por info: %d\n", busca_por_info(lista, 10));
+    printf("Busca por posicao: %d\n", busca_por_posicao(lista, 4)->info);
+    printf("Esta vazia: %d\n", esta_vazia(lista));
+    printf("Atualiza info: %d\n", atualiza_elemento(lista, 1, 21));
+    deleta_elemento(lista, 5);
+    imprime_lista(lista);
 }

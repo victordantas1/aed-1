@@ -66,13 +66,13 @@ int pertence(Lista* lista, int info) {
     return 0;
 }
 
-int busca_por_posicao(Lista* lista, int posicao) {
-    if(posicao == 0) return lista->prim->info;
+ListaNo* busca_por_posicao(Lista* lista, int posicao) {
+    if(posicao == 0) return lista->prim;
     else {
         int percorrePosicao = 0;
         ListaNo* p;
         for(p = lista->prim; percorrePosicao < posicao; p = p->proxNo) percorrePosicao++;
-        return p->info;
+        return p;
     }
 }
 
@@ -93,4 +93,22 @@ int tamanho(Lista* lista) {
 
 int esta_vazia(Lista* lista) {
     return lista->tamanho == 0 ? 1 : 0; 
+}
+
+int atualiza_elemento(Lista* lista, int posicao, int info) {
+    ListaNo* no = busca_por_posicao(lista, posicao);
+    no->info = info;
+    return no->info;
+}
+
+void deleta_elemento(Lista* lista, int posicao) {
+    if(posicao > lista->tamanho - 1) printf("Posicao invalida\n");
+    else {
+        ListaNo* noTmp;
+        int percorrePosicao = 0;
+        ListaNo* p;
+        for(p = lista->prim; percorrePosicao < posicao - 1; p = p->proxNo) percorrePosicao++;
+        noTmp = p->proxNo;
+        p->proxNo = noTmp->proxNo;
+    }
 }

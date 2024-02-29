@@ -24,10 +24,14 @@ void imprime_lista(Lista* lista);
 
 int pertence(Lista* lista, int info);
 
-int busca_por_posicao(Lista* lista, int posicao);
+ListaNo* busca_por_posicao(Lista* lista, int posicao);
 
 int busca_por_info(Lista* lista, int info);
 
 int tamanho(Lista* lista);
 
 int esta_vazia(Lista* lista);
+
+int atualiza_elemento(Lista* lista, int posicao, int info);
+
+void deleta_elemento(Lista* lista, int posicao);
